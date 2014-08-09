@@ -1,7 +1,7 @@
 'use strict';
 
 // Default modules
-var modules = ['ngCookies', 'ngResource', 'ui.bootstrap', 'ui.router', 'ui.utils'];
+var modules = ['ngCookies', 'ngResource', 'ui.bootstrap', 'ui.router', 'ui.utils', 'NewProject.Comments'];
 
 // Combined modules
 angular.module('NewProject', modules)

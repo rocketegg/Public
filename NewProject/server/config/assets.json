@@ -1,0 +1,25 @@
+{
+	"main": {
+		"css": {
+			"build/css/dist.min.css": [
+				"public/statics/javascript/bootstrap/dist/css/bootstrap.min.css",
+				"public/stylesheets/style.css"
+			]
+		},
+		"js": {
+			"build/js/dist.min.js": [
+				"public/statics/javascript/angular/angular.js",
+				"public/statics/javascript/angular-cookies/angular-cookies.js",
+				"public/statics/javascript/angular-resource/angular-resource.js",
+				"public/statics/javascript/angular-ui-router/release/angular-ui-router.js",
+				"public/statics/javascript/angular-bootstrap/ui-bootstrap.js",
+				"public/statics/javascript/angular-bootstrap/ui-bootstrap-tpls.js",
+				"public/statics/javascript/angular-ui-utils/ui-utils.min.js",
+				"public/javascripts/init.js",
+				"public/*/*.js",
+				"public/*/*/*.js",
+				"!build/**"
+			]
+		}
+	}
+}

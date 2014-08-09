@@ -4,6 +4,7 @@ var favicon = require('static-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var assetmanager = require('assetmanager');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -21,6 +22,24 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
+
+// Import your asset file
+var assets = require('./server/config/assets.json');
+console.log(assets);
+assetmanager.process({
+    assets: assets,
+    debug: (process.env.NODE_ENV !== 'production'),
+    webroot: 'public/'
+});
+
+console.log(assetmanager.assets);
+
+// Add assets to local variables
+app.use(function(req, res, next) {
+    res.locals.assets = assetmanager.assets;
+    next();
+});
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
@@ -33,6 +52,7 @@ app.use(function(req, res, next) {
     next(err);
 });
 
+
 /// error handlers
 
 // development error handler
@@ -44,6 +64,7 @@ if (app.get('env') === 'development') {
             message: err.message,
             error: err
         });
+        console.log(err)
     });
 }
 

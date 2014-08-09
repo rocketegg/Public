@@ -1,1 +1,3 @@
-<script type="text/javascript" src="javascripts/init.js"></script>
+{% for file in assets.main.js %}
+    <script type="text/javascript" src="{{file}}"></script>
+{% endfor %}
